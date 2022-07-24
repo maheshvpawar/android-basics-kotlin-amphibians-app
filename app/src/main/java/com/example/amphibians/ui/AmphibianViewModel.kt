@@ -38,12 +38,12 @@ class AmphibianViewModel : ViewModel() {
 
     fun getAmphibianList() {
         viewModelScope.launch {
-            AmphibianApiStatus.LOADING
+            _status.value = AmphibianApiStatus.LOADING
             try {
                 _amphibians.value = AmphibiansApi.retrofitService.getAmbhibians()
-                AmphibianApiStatus.DONE
+                _status.value = AmphibianApiStatus.DONE
             } catch (e: Exception) {
-                AmphibianApiStatus.ERROR
+                _status.value = AmphibianApiStatus.ERROR
                 _amphibians.value = listOf()
             }
         }
