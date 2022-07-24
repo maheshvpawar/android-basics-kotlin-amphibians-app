@@ -36,7 +36,7 @@ class AmphibianViewModel : ViewModel() {
     private val _amphibian = MutableLiveData<Amphibian>()
     val amphibian: LiveData<Amphibian> = _amphibian
 
-    fun getAmphibiansList() {
+    fun getAmphibianList() {
         viewModelScope.launch {
             AmphibianApiStatus.LOADING
             try {
